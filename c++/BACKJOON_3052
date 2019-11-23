@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	int num[10];
+	int result[42] = { 0 };
+	int how_many = 0;
+	for (int i = 0;i < 10;i++) {
+		cin >> num[i];
+		num[i] = num[i] % 42;
+		result[num[i]]++;
+	}
+	for (int i = 0; i < 42; i++) {
+		if (result[i] != 0) {
+			how_many++;
+		}
+	}
+	cout << how_many << endl;
+	return 0;
+}

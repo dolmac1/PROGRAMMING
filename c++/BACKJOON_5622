@@ -1,0 +1,96 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	string a;
+	cin >> a;
+	int result = 0;
+	for (int i = 0;i < a.length();i++) {
+		switch (a[i]) {
+		case 'A':
+			result = result + 3;
+			break;
+		case 'B':
+			result = result + 3;
+			break;
+		case 'C':
+			result = result + 3;
+			break;
+		case 'D':
+			result = result + 4;
+			break;
+		case 'E':
+			result = result + 4;
+			break;
+		case 'F':
+			result = result + 4;
+			break;
+		case 'G':
+			result = result + 5;
+			break;
+		case 'H':
+			result = result + 5;
+			break;
+		case 'I':
+			result = result + 5;
+			break;
+		case 'J':
+			result = result + 6;
+			break;
+		case 'K':
+			result = result + 6;
+			break;
+		case 'L':
+			result = result + 6;
+			break;
+		case 'M':
+			result = result + 7;
+			break;
+		case 'N':
+			result = result + 7;
+			break;
+		case 'O':
+			result = result + 7;
+			break;
+		case 'P':
+			result = result + 8;
+			break;
+		case 'Q':
+			result = result + 8;
+			break;
+		case 'R':
+			result = result + 8;
+			break;
+		case 'S':
+			result = result + 8;
+			break;
+		case 'T':
+			result = result + 9;
+			break;
+		case 'U':
+			result = result + 9;
+			break;
+		case 'V':
+			result = result + 9;
+			break;
+		case 'W':
+			result = result + 10;
+			break;
+		case 'X':
+			result = result + 10;
+			break;
+		case 'Y':
+			result = result + 10;
+			break;
+		case 'Z':
+			result = result + 10;
+			break;
+		
+		}
+
+	}
+	cout << result << endl;
+}

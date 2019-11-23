@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int a, b;
+	cin >> a >> b;
+	int k = (a * 60) + b;
+	k = k - 45;
+	if (k < 0) {
+		k = k + 1440;
+	}
+	a = k / 60;
+	b = k % 60;
+	cout << a << " " << b << endl;
+	return 0;
+}

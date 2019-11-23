@@ -1,0 +1,40 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+	ios::sync_with_stdio(false);
+	int n;
+	cin >> n;
+	int a[5001];
+	a[0] = 0;
+	a[1] = 0;
+	a[2] = 0;
+	a[3] = 1;
+	a[4] = 0;
+	a[5] = 1;
+	for (int k = 6;k <= n;k++) {
+		int p = 99999;
+		int q = 99999;
+		if (a[k - 3] != 0) {
+			p = a[k - 3] + 1;
+		}
+		if (a[k - 5] != 0) {
+			q = a[k - 5] + 1;
+		}
+		if (p != 99999 || q != 99999) {
+			a[k] = min(p, q);
+		}
+		else {
+			a[k] = 0;
+		}
+	}
+	if (a[n] == 0) {
+		cout << -1 << endl;
+	}
+	else {
+		cout << a[n] << endl;
+	}
+
+	return 0;
+}

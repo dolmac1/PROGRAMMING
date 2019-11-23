@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	int n;
+	cin >> n;
+	int kgcm[2][50] = { 0 };
+	int ranking[50] = { 0 };
+	for (int i = 0;i < n;i++) {
+		cin >> kgcm[0][i] >> kgcm[1][i];
+	}
+	for (int i = 0;i < n;i++) {
+		for (int j = 0;j < n;j++) {
+			if (i != j) {
+				if(kgcm[0][i] >= kgcm[0][j] && kgcm[1][i] >= kgcm[1][j]){
+					ranking[i]++;
+				}
+				else if (kgcm[0][i] >= kgcm[0][j] && kgcm[1][i] < kgcm[1][j]) {
+					ranking[i]++;
+				}
+				else if (kgcm[0][i] < kgcm[0][j] && kgcm[1][i] >= kgcm[1][j]) {
+					ranking[i]++;
+				}
+			}
+			
+		}
+	}
+	for (int i = 0;i < n;i++) {
+		cout << n-ranking[i] << " ";
+	}
+	cout << endl;
+	return 0;
+}

@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	int c;
+	cin >> c;
+	for (int i = 0;i < c;i++) {
+		int n;
+		cin >> n;
+		double student[1000];
+		double percen;
+		double average;
+		double st_num = 0;
+		double total = 0;
+
+		for (int j = 0;j < n;j++) {
+			cin >> student[j];
+			total = total + student[j];
+		}
+		average = total / n;
+		for (int j = 0;j < n;j++) {
+			if (student[j] > average) {
+				st_num++;
+			}
+		}
+		percen = st_num / n * 100;
+		cout.precision(3);
+		cout.setf(ios::fixed);
+		cout << percen << "%" << endl;
+	}
+	return 0;
+}
