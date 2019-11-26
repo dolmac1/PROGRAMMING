@@ -15,7 +15,7 @@ int main(void)
 
 	}
 	sort(num_arr,num_arr+N);
-	for (int i = 0;i < 1000000;i++) {
+	for (int i = 0;i < N;i++) {
 		cout << num_arr[i] <<"\n";
 	}
 	return 0;
