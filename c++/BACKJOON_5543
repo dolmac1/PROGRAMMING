@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main(void)
+{
+	cin.tie(NULL);
+	ios::sync_with_stdio(false);
+	int burger[3];
+	int coke[2];
+	int min_a = 2000;
+	int min_b = 2000;
+	for (int i = 0; i < 3;i++) {
+		cin >> burger[i];
+		if (burger[i] < min_a) {
+			min_a = burger[i];
+		}
+	}
+	for (int j = 0;j < 2;j++) {
+		cin >> coke[j];
+		if (coke[j] < min_b) {
+			min_b = coke[j];
+		}
+	}
+	cout << min_a + min_b - 50 << endl;
+	return 0;
+}
