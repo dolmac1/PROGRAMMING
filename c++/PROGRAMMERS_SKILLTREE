@@ -1,0 +1,30 @@
+#include <string>
+#include <vector>
+using namespace std;
+
+int solution(string skill, vector<string> skill_trees) {
+    int answer = 0;
+    int skill_loc[26]={ 0 }; //A~Z까지 스킬순서에 어떤 스킬이 들어있는지 넣기위함
+    for(int i=0;i<skill.size();i++){ //스킬순서에 들어있는 스킬 1로 변경
+        skill_loc[skill[i]-65] = 1;
+    }
+    for(int i=0; i<skill_trees.size(); i++){ //스킬트리에 들어있는 배열의 크기만큼 돌면서
+        string skill_imsi = "";
+        for(int j=0;j<skill_trees[i].size();j++){ //각각의 스킬트리에 스킬순서가 있는 스킬들만 남기도록함
+            if(skill_loc[skill_trees[i][j]-65] == 1){
+                skill_imsi += skill_trees[i][j];
+            }
+        }
+        int tf_count = 0;
+        for(int j=0;j<skill_imsi.size();j++){ //스킬트리와 스킬 순서를 비교하면서
+            if(skill_imsi[j]!=skill[j]){ //순서에 어긋나는게 있으면 변수를 1로 바꾸고 탈출
+                tf_count = 1;
+                break;
+            }
+        }
+        if(tf_count == 0){//순서에 어긋난게 없다면 답에 +1
+            answer++;
+        }
+    }
+    return answer;
+}
