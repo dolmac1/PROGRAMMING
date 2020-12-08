@@ -7,7 +7,7 @@ int main() {
 	int tcase;
 	cin >> tcase;
 	for (int a = 0;a < tcase;a++) {
-		int maeul[501];//°¢°¢ ¸¶À»µéÀÇ ÃÖ´Ü°Å¸®
+		int maeul[501];//Â°Ë˜Â°Ë˜ Â¸Å›Å”Å¥Ä¾Ã©Å”Ã‡ Ä‚Ã–Â´ÃœÂ°Ä¹Â¸Å½
 		int maeulgill[501][501];
 		int maeulgill2[501][501];
 		int maeulfar[500001];
