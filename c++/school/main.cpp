@@ -4,27 +4,27 @@
 using namespace std;
 
 int main() {
-	int N; //process ¼ö
+	int N; //process ìˆ˜
 	int a_t[10];//arrival time
 	int priority[10];//priority
 	int processnumber[10];
-	int bursttime[10][40] = { 0 };//cpu burst, io burst È¦¼ö¹øÂ° cpu Â¦¼ö¹øÂ° io(´Ü À§Ä¡»óÀ¸·Î´Â ¹İ´ë)
-	int bursttime2[10][40] = { 0 };//burst time ¹é¾÷¿ë
-	int times[10] = { 0 };//terminate µÉ ¶§±îÁö ÃÑ °É¸®´Â ½Ã°£
+	int bursttime[10][40] = { 0 };//cpu burst, io burst í™€ìˆ˜ë²ˆì§¸ cpu ì§ìˆ˜ë²ˆì§¸ io(ë‹¨ ìœ„ì¹˜ìƒìœ¼ë¡œëŠ” ë°˜ëŒ€)
+	int bursttime2[10][40] = { 0 };//burst time ë°±ì—…ìš©
+	int times[10] = { 0 };//terminate ë  ë•Œê¹Œì§€ ì´ ê±¸ë¦¬ëŠ” ì‹œê°„
 	int waiting[4][10];//waiting time
 	int turnaround[4][10];//turnaround time
 	int firstrunning[10] = { 0 };
 	cout << "scheduling programing" << endl;
 	cin >> N;
 	for (int i = 0;i < N;i++) {
-		cin >> a_t[i] >> priority[i]; // µµÂø½Ã°£ÀÌ¶û ¿ì¼±¼øÀ§
+		cin >> a_t[i] >> priority[i]; // ë„ì°©ì‹œê°„ì´ë‘ ìš°ì„ ìˆœìœ„
 		processnumber[i]=i;
 		int timenumber = 0;
 		for (int j = 0;j == 0;) {
-			if (cin.get() == '\n') {//¿£ÅÍ³ª¿À¸é ÀÌ¹ø ÇÁ·Î¼¼½ºÀÇ burst timeÀÔ·Â ³¡ 
+			if (cin.get() == '\n') {//ì—”í„°ë‚˜ì˜¤ë©´ ì´ë²ˆ í”„ë¡œì„¸ìŠ¤ì˜ burst timeì…ë ¥ ë 
 				j = 1;
 			}
-			else {//enter°¡ ³ª¿À±â Àü±îÁø ÀÌ¹ø ÇÁ·Î¼¼½ºÀÇ bursttime
+			else {//enterê°€ ë‚˜ì˜¤ê¸° ì „ê¹Œì§„ ì´ë²ˆ í”„ë¡œì„¸ìŠ¤ì˜ bursttime
 				cin >> bursttime[i][timenumber];
 				bursttime2[i][timenumber]= bursttime[i][timenumber];
 				times[i] = times[i] + bursttime[i][timenumber];
@@ -32,7 +32,7 @@ int main() {
 			}
 		}
 	}
-	//¿©±âºÎÅÍ´Â fifo°è»ê
+	//ì—¬ê¸°ë¶€í„°ëŠ” fifoê³„ì‚°
 	cout << "(FIFO)" << endl;
 	queue<int> readyqueue;
 	queue<int> ioqueue;
@@ -43,8 +43,8 @@ int main() {
 			if (a_t[k] == j) {
 				readyqueue.push(processnumber[k]);
 			}
-		}//Ã³À½ µµ´ŞÇÏ¸é ·¹µğÅ¥¿¡ ³Ö±â
-		if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		}//ì²˜ìŒ ë„ë‹¬í•˜ë©´ ë ˆë””íì— ë„£ê¸°
+		if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			running = readyqueue.front();
 			cout << j << " " << readyqueue.front() << endl;
 			readyqueue.pop();
@@ -52,12 +52,12 @@ int main() {
 				waiting[0][running] = j - a_t[running];
 				firstrunning[running] = 1;
 			}
-		}//running ÁßÀÌ ¾ø´Ù¸é ³Ö±â
+		}//running ì¤‘ì´ ì—†ë‹¤ë©´ ë„£ê¸°
 		if (bursttime[running][0] == 0) {
 			if (bursttime[running][1] == 0) {
-				turnaround[0][running] = j - a_t[running];//³¡³­ÇÁ·Î¼¼½ºÀÇ turnaround time
+				turnaround[0][running] = j - a_t[running];//ëë‚œí”„ë¡œì„¸ìŠ¤ì˜ turnaround time
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					cout << j << " " << readyqueue.front() << endl;
 					readyqueue.pop();
@@ -66,16 +66,16 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Å ÀÖÀ¸¸é ³Ö±â
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê±° ìˆìœ¼ë©´ ë„£ê¸°
 			}
-			else {//¾ÆÁ÷ ÇÒÀÏÀÌ ³²Àº ÇÁ·Î¼¼½º
+			else {//ì•„ì§ í• ì¼ì´ ë‚¨ì€ í”„ë¡œì„¸ìŠ¤
 				ioqueue.push(running);
 				for (int k = 0;k < 39;k++) {
-					bursttime[running][k] = bursttime[running][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[running][k] = bursttime[running][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[running][39] = 0;
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					cout << j << " " << readyqueue.front() << endl;
 					readyqueue.pop();
@@ -84,23 +84,23 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Í
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê²ƒ
 			}
 		}
-		if (ioing == 11&&!ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		if (ioing == 11&&!ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			ioing = ioqueue.front();
 			ioqueue.pop();
 		}
-		else if(ioing!=11){//io Ã³¸®ÁßÀÎ °ÍÀÌ ÀÖÀ» ¶§
+		else if(ioing!=11){//io ì²˜ë¦¬ì¤‘ì¸ ê²ƒì´ ìˆì„ ë•Œ
 			if (bursttime[ioing][0] == 0) {
 				readyqueue.push(ioing);
 				for (int k = 0;k < 39;k++) {
-					bursttime[ioing][k] = bursttime[ioing][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[ioing][k] = bursttime[ioing][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[ioing][39] = 0;
 				ioing = 11;
 			}
-			if (ioing == 11 && !ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+			if (ioing == 11 && !ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 				ioing = ioqueue.front();
 				ioqueue.pop();
 			}
@@ -108,14 +108,14 @@ int main() {
 
 		if (ioing == 11 && running == 11 && !ioqueue.empty() && !readyqueue.empty() && bursttime[0][0] == 0 && bursttime[1][0] == 0 && bursttime[2][0] == 0 && bursttime[3][0] == 0 && bursttime[4][0] == 0 && bursttime[5][0] == 0 && bursttime[6][0] == 0 && bursttime[7][0] == 0 && bursttime[8][0] == 0 && bursttime[9][0] == 0) {
 			j = 1000000;
-		}//´Ù³¡³ª¸é Á¾·áÇÏ±âÀ§ÇÔ 
+		}//ë‹¤ëë‚˜ë©´ ì¢…ë£Œí•˜ê¸°ìœ„í•¨ 
 		if (running != 11) {
 			bursttime[running][0]--;
 		}
 		if (ioing != 11) {
 			bursttime[ioing][0]--;
 		}
-		//¸¶Áö¸·¿¡ ½Ã°£ 1¾¿ °¨¼Ò½ÃÄÑÁÖÀÚ
+		//ë§ˆì§€ë§‰ì— ì‹œê°„ 1ì”© ê°ì†Œì‹œì¼œì£¼ì
 	}
 	for (int h = 0;h < N;h++) {
 		cout << "process " << h << " waiting time : " << waiting[0][h] << ", turn around time : " << turnaround[0][h] << endl;
@@ -129,7 +129,7 @@ int main() {
 		firstrunning[dd] = 0;
 	}
 //-------------------------------------------------------------------------------------------------
-	//¿©±â¼­ºÎÅÍ´Â SJF
+	//ì—¬ê¸°ì„œë¶€í„°ëŠ” SJF
 	cout << "(SJF)" << endl;
 	running = 11;
 	ioing = 11;
@@ -162,8 +162,8 @@ int main() {
 					}
 				}
 			}
-		}//Ã³À½ µµ´ŞÇÏ¸é ·¹µğÅ¥¿¡ ³Ö±â
-		if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		}//ì²˜ìŒ ë„ë‹¬í•˜ë©´ ë ˆë””íì— ë„£ê¸°
+		if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			running = readyqueue.front();
 			cout << j << " " << readyqueue.front() << endl;
 			readyqueue.pop();
@@ -171,12 +171,12 @@ int main() {
 				waiting[1][running] = j - a_t[running];
 				firstrunning[running] = 1;
 			}
-		}//running ÁßÀÌ ¾ø´Ù¸é ³Ö±â
+		}//running ì¤‘ì´ ì—†ë‹¤ë©´ ë„£ê¸°
 		if (bursttime[running][0] == 0) {
 			if (bursttime[running][1] == 0) {
-				turnaround[1][running] = j - a_t[running];//³¡³­ÇÁ·Î¼¼½ºÀÇ turnaround time
+				turnaround[1][running] = j - a_t[running];//ëë‚œí”„ë¡œì„¸ìŠ¤ì˜ turnaround time
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					cout << j << " " << readyqueue.front() << endl;
 					readyqueue.pop();
@@ -185,9 +185,9 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Å ÀÖÀ¸¸é ³Ö±â
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê±° ìˆìœ¼ë©´ ë„£ê¸°
 			}
-			else {//¾ÆÁ÷ ÇÒÀÏÀÌ ³²Àº ÇÁ·Î¼¼½º
+			else {//ì•„ì§ í• ì¼ì´ ë‚¨ì€ í”„ë¡œì„¸ìŠ¤
 				  //ioqueue.push(running);
 				if (ioqueue.empty()) {
 					ioqueue.push(running);
@@ -214,11 +214,11 @@ int main() {
 					}
 				}
 				for (int k = 0;k < 39;k++) {
-					bursttime[running][k] = bursttime[running][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[running][k] = bursttime[running][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[running][39] = 0;
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					cout << j << " " << readyqueue.front() << endl;
 					readyqueue.pop();
@@ -227,14 +227,14 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Í
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê²ƒ
 			}
 		}
-		if (ioing == 11 && !ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		if (ioing == 11 && !ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			ioing = ioqueue.front();
 			ioqueue.pop();
 		}
-		else if (ioing != 11) {//io Ã³¸®ÁßÀÎ °ÍÀÌ ÀÖÀ» ¶§
+		else if (ioing != 11) {//io ì²˜ë¦¬ì¤‘ì¸ ê²ƒì´ ìˆì„ ë•Œ
 			if (bursttime[ioing][0] == 0) {
 				//readyqueue.push(ioing);
 				if (readyqueue.empty()) {
@@ -262,12 +262,12 @@ int main() {
 					}
 				}
 				for (int k = 0;k < 39;k++) {
-					bursttime[ioing][k] = bursttime[ioing][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[ioing][k] = bursttime[ioing][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[ioing][39] = 0;
 				ioing = 11;
 			}
-			if (ioing == 11 && !ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+			if (ioing == 11 && !ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 				ioing = ioqueue.front();
 				ioqueue.pop();
 			}
@@ -275,14 +275,14 @@ int main() {
 
 		if (ioing == 11 && running == 11 && !ioqueue.empty() && !readyqueue.empty() && bursttime[0][0] == 0 && bursttime[1][0] == 0 && bursttime[2][0] == 0 && bursttime[3][0] == 0 && bursttime[4][0] == 0 && bursttime[5][0] == 0 && bursttime[6][0] == 0 && bursttime[7][0] == 0 && bursttime[8][0] == 0 && bursttime[9][0] == 0) {
 			j = 1000000;
-		}//´Ù³¡³ª¸é Á¾·áÇÏ±âÀ§ÇÔ 
+		}//ë‹¤ëë‚˜ë©´ ì¢…ë£Œí•˜ê¸°ìœ„í•¨ 
 		if (running != 11) {
 			bursttime[running][0]--;
 		}
 		if (ioing != 11) {
 			bursttime[ioing][0]--;
 		}
-		//¸¶Áö¸·¿¡ ½Ã°£ 1¾¿ °¨¼Ò½ÃÄÑÁÖÀÚ
+		//ë§ˆì§€ë§‰ì— ì‹œê°„ 1ì”© ê°ì†Œì‹œì¼œì£¼ì
 	}
 
 
@@ -298,7 +298,7 @@ int main() {
 		firstrunning[dd] = 0;
 	}
 //-------------------------------------------------------------------------------------------------
-	//¿©±â¼­ºÎÅÍ´Â PQ
+	//ì—¬ê¸°ì„œë¶€í„°ëŠ” PQ
 	cout << "(priority)" << endl;
 	running = 11;
 	ioing = 11;
@@ -331,8 +331,8 @@ int main() {
 					}
 				}
 			}
-		}//Ã³À½ µµ´ŞÇÏ¸é ·¹µğÅ¥¿¡ ³Ö±â
-		if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		}//ì²˜ìŒ ë„ë‹¬í•˜ë©´ ë ˆë””íì— ë„£ê¸°
+		if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			running = readyqueue.front();
 			cout << j << " " << readyqueue.front() << endl;
 			readyqueue.pop();
@@ -340,12 +340,12 @@ int main() {
 				waiting[2][running] = j - a_t[running];
 				firstrunning[running] = 1;
 			}
-		}//running ÁßÀÌ ¾ø´Ù¸é ³Ö±â
+		}//running ì¤‘ì´ ì—†ë‹¤ë©´ ë„£ê¸°
 		if (bursttime[running][0] == 0) {
 			if (bursttime[running][1] == 0) {
-				turnaround[2][running] = j - a_t[running];//³¡³­ÇÁ·Î¼¼½ºÀÇ turnaround time
+				turnaround[2][running] = j - a_t[running];//ëë‚œí”„ë¡œì„¸ìŠ¤ì˜ turnaround time
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					cout << j << " " << readyqueue.front() << endl;
 					readyqueue.pop();
@@ -354,9 +354,9 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Å ÀÖÀ¸¸é ³Ö±â
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê±° ìˆìœ¼ë©´ ë„£ê¸°
 			}
-			else {//¾ÆÁ÷ ÇÒÀÏÀÌ ³²Àº ÇÁ·Î¼¼½º
+			else {//ì•„ì§ í• ì¼ì´ ë‚¨ì€ í”„ë¡œì„¸ìŠ¤
 				//ioqueue.push(running);
 				if (ioqueue.empty()) {
 					ioqueue.push(running);
@@ -383,11 +383,11 @@ int main() {
 					}
 				}
 				for (int k = 0;k < 39;k++) {
-					bursttime[running][k] = bursttime[running][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[running][k] = bursttime[running][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[running][39] = 0;
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					cout << j << " " << readyqueue.front() << endl;
 					readyqueue.pop();
@@ -396,14 +396,14 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Í
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê²ƒ
 			}
 		}
-		if (ioing == 11 && !ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		if (ioing == 11 && !ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			ioing = ioqueue.front();
 			ioqueue.pop();
 		}
-		else if (ioing != 11) {//io Ã³¸®ÁßÀÎ °ÍÀÌ ÀÖÀ» ¶§
+		else if (ioing != 11) {//io ì²˜ë¦¬ì¤‘ì¸ ê²ƒì´ ìˆì„ ë•Œ
 			if (bursttime[ioing][0] == 0) {
 				//readyqueue.push(ioing);
 				if (readyqueue.empty()) {
@@ -431,12 +431,12 @@ int main() {
 					}
 				}
 				for (int k = 0;k < 39;k++) {
-					bursttime[ioing][k] = bursttime[ioing][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[ioing][k] = bursttime[ioing][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[ioing][39] = 0;
 				ioing = 11;
 			}
-			if (ioing == 11 && !ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+			if (ioing == 11 && !ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 				ioing = ioqueue.front();
 				ioqueue.pop();
 			}
@@ -444,14 +444,14 @@ int main() {
 
 		if (ioing == 11 && running == 11 && !ioqueue.empty() && !readyqueue.empty() && bursttime[0][0] == 0 && bursttime[1][0] == 0 && bursttime[2][0] == 0 && bursttime[3][0] == 0 && bursttime[4][0] == 0 && bursttime[5][0] == 0 && bursttime[6][0] == 0 && bursttime[7][0] == 0 && bursttime[8][0] == 0 && bursttime[9][0] == 0) {
 			j = 1000000;
-		}//´Ù³¡³ª¸é Á¾·áÇÏ±âÀ§ÇÔ 
+		}//ë‹¤ëë‚˜ë©´ ì¢…ë£Œí•˜ê¸°ìœ„í•¨ 
 		if (running != 11) {
 			bursttime[running][0]--;
 		}
 		if (ioing != 11) {
 			bursttime[ioing][0]--;
 		}
-		//¸¶Áö¸·¿¡ ½Ã°£ 1¾¿ °¨¼Ò½ÃÄÑÁÖÀÚ
+		//ë§ˆì§€ë§‰ì— ì‹œê°„ 1ì”© ê°ì†Œì‹œì¼œì£¼ì
 	}
 
 	for (int h = 0;h < N;h++) {
@@ -466,7 +466,7 @@ int main() {
 		firstrunning[dd] = 0;
 	}
 //-----------------------------------------------------------------------------
-	//¿©±â¼­ºÎÅÍ´Â ¶ó¿îµå·Îºó
+	//ì—¬ê¸°ì„œë¶€í„°ëŠ” ë¼ìš´ë“œë¡œë¹ˆ
 	cout << "(round robin)" << endl;
 	running = 11;
 	ioing = 11;
@@ -479,12 +479,12 @@ int main() {
 			if (a_t[k] == j) {
 				readyqueue.push(processnumber[k]);
 			}
-		}//Ã³À½ µµ´ŞÇÏ¸é ·¹µğÅ¥¿¡ ³Ö±â
+		}//ì²˜ìŒ ë„ë‹¬í•˜ë©´ ë ˆë””íì— ë„£ê¸°
 		if (running != 11 && readytimeout == j&&bursttime[running][0] != 0) {
 			readyqueue.push(running);
 			running = 11;
 		}
-		if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			running = readyqueue.front();
 			cout << j << " " << readyqueue.front() << endl;
 			readyqueue.pop();
@@ -492,13 +492,13 @@ int main() {
 				waiting[3][running] = j - a_t[running];
 				firstrunning[running] = 1;
 			}
-		}//running ÁßÀÌ ¾ø´Ù¸é ³Ö±â
+		}//running ì¤‘ì´ ì—†ë‹¤ë©´ ë„£ê¸°
 
 		if (bursttime[running][0] == 0) {
 			if (bursttime[running][1] == 0) {
-				turnaround[3][running] = j - a_t[running];//³¡³­ÇÁ·Î¼¼½ºÀÇ turnaround time
+				turnaround[3][running] = j - a_t[running];//ëë‚œí”„ë¡œì„¸ìŠ¤ì˜ turnaround time
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					readytimeout = j + 10;
 					cout << j << " " << readyqueue.front() << endl;
@@ -508,16 +508,16 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Å ÀÖÀ¸¸é ³Ö±â
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê±° ìˆìœ¼ë©´ ë„£ê¸°
 			}
-			else {//¾ÆÁ÷ ÇÒÀÏÀÌ ³²Àº ÇÁ·Î¼¼½º
+			else {//ì•„ì§ í• ì¼ì´ ë‚¨ì€ í”„ë¡œì„¸ìŠ¤
 				ioqueue.push(running);
 				for (int k = 0;k < 39;k++) {
-					bursttime[running][k] = bursttime[running][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[running][k] = bursttime[running][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[running][39] = 0;
 				running = 11;
-				if (running == 11 && !readyqueue.empty()) {//runningÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+				if (running == 11 && !readyqueue.empty()) {//runningì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 					running = readyqueue.front();
 					readytimeout = j + 10;
 					cout << j << " " << readyqueue.front() << endl;
@@ -527,28 +527,28 @@ int main() {
 						firstrunning[running] = 1;
 					}
 
-				}//·¯´×ÀÌ ³¡³µÀ¸´Ï ´ÙÀ½°Í
+				}//ëŸ¬ë‹ì´ ëë‚¬ìœ¼ë‹ˆ ë‹¤ìŒê²ƒ
 			}
 		}
 		if (bursttime[ioing][0]!=0&&ioing != 11 && iotimeout == j) {
 			ioqueue.push(ioing);
 			ioing = 11;
 		}
-		if (ioing == 11 && !ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+		if (ioing == 11 && !ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 			ioing = ioqueue.front();
 			iotimeout = j + 10;
 			ioqueue.pop();
 		}
-		else if (ioing != 11) {//io Ã³¸®ÁßÀÎ °ÍÀÌ ÀÖÀ» ¶§
+		else if (ioing != 11) {//io ì²˜ë¦¬ì¤‘ì¸ ê²ƒì´ ìˆì„ ë•Œ
 			if (bursttime[ioing][0] == 0) {
 				readyqueue.push(ioing);
 				for (int k = 0;k < 39;k++) {
-					bursttime[ioing][k] = bursttime[ioing][k + 1];//¿Ï·á‰çÀ¸´Ï ÇÑÄ­¾¿ ´ç±âÀÚ
+					bursttime[ioing][k] = bursttime[ioing][k + 1];//ì™„ë£ŒÂ‰ç‘›ë¦¿ í•œì¹¸ì”© ë‹¹ê¸°ì
 				}
 				bursttime[ioing][39] = 0;
 				ioing = 11;
 			}
-			if (ioing == 11 && !ioqueue.empty()) {//ioÁßÀÌ ¾øÀ¸¸é Å¥ÀÇ ¸Ç¾Õ ½ÇÇà
+			if (ioing == 11 && !ioqueue.empty()) {//ioì¤‘ì´ ì—†ìœ¼ë©´ íì˜ ë§¨ì• ì‹¤í–‰
 				ioing = ioqueue.front();
 				iotimeout = j + 10;
 				ioqueue.pop();
@@ -558,14 +558,14 @@ int main() {
 
 		if (ioing == 11 && running == 11 && !ioqueue.empty() && !readyqueue.empty() && bursttime[0][0] == 0 && bursttime[1][0] == 0 && bursttime[2][0] == 0 && bursttime[3][0] == 0 && bursttime[4][0] == 0 && bursttime[5][0] == 0 && bursttime[6][0] == 0 && bursttime[7][0] == 0 && bursttime[8][0] == 0 && bursttime[9][0] == 0) {
 			j = 1000000;
-		}//´Ù³¡³ª¸é Á¾·áÇÏ±âÀ§ÇÔ 
+		}//ë‹¤ëë‚˜ë©´ ì¢…ë£Œí•˜ê¸°ìœ„í•¨ 
 		if (running != 11) {
 			bursttime[running][0]--;
 		}
 		if (ioing != 11) {
 			bursttime[ioing][0]--;
 		}
-		//¸¶Áö¸·¿¡ ½Ã°£ 1¾¿ °¨¼Ò½ÃÄÑÁÖÀÚ
+		//ë§ˆì§€ë§‰ì— ì‹œê°„ 1ì”© ê°ì†Œì‹œì¼œì£¼ì
 	}
 	for (int h = 0;h < N;h++) {
 		cout << "process " << h << " waiting time : " << waiting[3][h] << ", turn around time : " << turnaround[3][h] << endl;
