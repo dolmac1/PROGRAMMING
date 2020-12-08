@@ -9,7 +9,7 @@ int main() {
 		int result;
 		int mongdanglength[10000] = { 0 };
 		int mongdanglocate[10000] = { 0 };
-		int dp[3][10000] = { 0 };//[0][x]=¿ÞÂÊ¾²·¯Áü,[1][x]=°¡¸¸È÷,[2][x]=¿À¸¥ÂÊ¾²·¯Áü
+		int dp[3][10000] = { 0 };//[0][x]=ì™¼ìª½ì“°ëŸ¬ì§,[1][x]=ê°€ë§Œížˆ,[2][x]=ì˜¤ë¥¸ìª½ì“°ëŸ¬ì§
 		int pencils;
 		cin >> pencils;
 		for (int b = 0;b < pencils;b++) {
