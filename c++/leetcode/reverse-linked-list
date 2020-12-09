@@ -1,0 +1,28 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* reverseList(ListNode* head) {
+        ListNode* temp; //head->next 저장
+        ListNode* temp2; //answer값 저장
+        ListNode* answer = NULL; //return 값
+        while(head != NULL){
+            temp = head->next; //head의 다음값 저장(2,3,4,5)
+            temp2 = answer; //answer값 저장(null)
+            answer = head;//answer에 head값 저장
+            answer->next = temp2; //answer뒤의 값 연결
+            head = temp; //head에 head->next 값 저장(맨앞뺌)
+        }
+        return answer;
+    }
+};
+
+// https://leetcode.com/problems/reverse-linked-list/submissions/
