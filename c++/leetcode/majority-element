@@ -1,0 +1,36 @@
+#include <algorithm>
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        int answer = 0;
+        double count = 0;
+        int max_num = 0;
+        double max_count = 0;
+        if(nums.size()==1){
+            return nums[0];
+        }
+        else{
+            for(int i=0;i<nums.size();i++){
+                if(nums[i]!=max_num){
+                    if(max_count > count){
+                        answer = max_num;
+                        count = max_count;
+                    }
+                    max_num=nums[i];
+                    max_count = 1;
+                }
+                else{
+                    max_count++;
+                    if(max_count >= double(nums.size() / 2.0)){
+                        return max_num;
+                    }
+                }
+            }
+        }
+        
+        return answer;
+    }
+};
+
+// https://leetcode.com/problems/majority-element/submissions/
