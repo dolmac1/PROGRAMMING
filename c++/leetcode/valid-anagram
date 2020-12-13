@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        int s_element[26]={0};
+        int t_element[26]={0};
+        for(int i=0;i<s.length();i++){
+            s_element[s[i]-97]++;
+        }
+        for(int i=0;i<t.length();i++){
+            t_element[t[i]-97]++;
+        }
+        for(int i=0;i<26;i++){
+            if(s_element[i]!=t_element[i]){
+                return false;
+            }
+        }
+        return true;
+    }
+};
+
+//https://leetcode.com/problems/valid-anagram
