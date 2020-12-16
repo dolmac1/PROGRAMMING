@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int reverse(int x) {
+        long return_val= 0;
+        while(x!=0){
+            return_val *= 10;
+            return_val = return_val + (x%10);
+            x=x/10;
+        }
+        if (return_val <= -2147483648 || return_val >=  2147483647){
+            return 0;
+        }
+            
+        return return_val;
+    }
+};
+
+// https://leetcode.com/problems/reverse-integer
