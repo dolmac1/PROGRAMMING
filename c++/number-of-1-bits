@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int result = 0;
+        while(1){
+            if(n%2 ==1){
+                result++;
+            }
+            n=n/2;
+            if(n==0){
+                break;
+            }
+        }
+        return result;
+    }
+};
+
+//https://leetcode.com/problems/number-of-1-bits/
