@@ -6,7 +6,7 @@
  - colsole.log(a);
    var a; 로 해도 된다는 뜻
    (단, var a=5;와 같이 아래에 선언해두면 var a;는 위로 당겨서 수행하지만 a=5는 colsole.log보다 뒤에서 수행)
-2.심벌 = 자기 자신을 제외한 그 어떤 값과도 다른 유일무이한 값
+2. 심벌 = 자기 자신을 제외한 그 어떤 값과도 다른 유일무이한 값
  - var sym1 = Symbol();로 선언
  - sym1 == sym2 //false
  - var A = Symbol("A");로 선언 가능 //colsole.log(A.toString());  해보면 Symbol(A)로 나옴
