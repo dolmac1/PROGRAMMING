@@ -1,0 +1,36 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    bool isSymmentric(TreeNode* a,TreeNode* b){
+        if(a == NULL && b == NULL){//양쪽 다 null 이면 시멘트릭
+            return true;
+        }
+        else if(a == NULL || b == NULL){//양쪽 다 null이 아닌거중에 한쪽만 널이면 안돼
+            return false;
+        }
+        if(a->val == b->val){ //둘이 같으면
+            return isSymmentric(a->right,b->left) && isSymmentric(a->left , b->right);
+        }
+        else{//두쪽 다 널이 아닌거중에 val값이 서로 다르면
+            return false;
+        }
+    }
+    bool isSymmetric(TreeNode* root) {
+        if(root ==NULL){
+            return true;
+        }
+        return isSymmentric(root->left, root->right);
+    }
+};
+
+// https://leetcode.com/problems/symmetric-tree/
