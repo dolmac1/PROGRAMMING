@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isPowerOfThree(int n) {
+        if(n==1){
+            return true;
+        }
+        int num = 1;
+        bool result = 0;
+        while(num < n){
+            if(num > INT_MAX/3){
+                return false;
+            }
+            num = num*3;
+            if(n==num){
+                result = 1;
+            }
+        }
+        return result;
+    }
+};
+
+// https://leetcode.com/problems/power-of-three
