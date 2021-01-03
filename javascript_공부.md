@@ -35,5 +35,9 @@
 2. 함수
  - y = f(x)
  - function 키워드를 사용해서 선언
-  > function sqare(x) { return x*x; } 
- - 
+   > function sqare(x) { return x*x; } 
+ - 함수는 캐멀표기법이나 밑줄 표기법으로 이름 지정, 이름만으로도 기능을 이해하기 쉽게 만들어야함
+ - sqare(3) 이런식으로 호출함. 다른 언어들이랑 똑같다.
+ - 함수도 변수랑 마찬가지로 프로그램의 아무 위치에나 선언할 수 있음
+   > console.log(square(5));<br>
+   > function square(x) { return x*x; }
