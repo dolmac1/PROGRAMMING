@@ -41,3 +41,16 @@
  - 함수도 변수랑 마찬가지로 프로그램의 아무 위치에나 선언할 수 있음
    > console.log(square(5));<br>
    > function square(x) { return x*x; }
+ - 자바스크립트에선 함수가 객체임. 함수 선언문으로 함수를 선언하여 사용가능
+   > var sq = square;<br>
+   > console.log(sq(5));
+ - 함수의 인수가 많아지면 고칠때 힘듬. 따라서 함수에 인수를 넘길 때 객체 프로퍼티를 이용해서 넘기면됨(변수의 순서가 바뀌어도 상관없다)
+ - 전역변수랑 똑같은 이름을 가진 함수내 지역변수가 있으면 지역변수 우선
+ - 함수 내에서 변수를 선언하지 않은 상태에서 대입하면 전역변수로 설정
+   > funtion f(){<br>
+   > a="local";<br>
+   > console.log(a);  //local <br>
+   > return a;<br>
+   > }<br>
+   > console.log(a); // local
+ - 
