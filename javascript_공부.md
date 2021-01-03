@@ -24,7 +24,7 @@
  - delete card.value;로 삭제 가능
  - in 연산자 사용해서 객체 안에 프로퍼티가 있는지 확인 가능 ex. if("suit" in card) 이런 식으로 쓰면 true
  - 객체 리터럴 사용 예시
-   > var dot = { x:1, y:2 };\n
+   > var dot = { x:1, y:2 };<br>
    > var circle = {
         center: {x:1,y:2};
         radius: 2.5;
