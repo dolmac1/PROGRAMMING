@@ -25,10 +25,15 @@
  - in 연산자 사용해서 객체 안에 프로퍼티가 있는지 확인 가능 ex. if("suit" in card) 이런 식으로 쓰면 true
  - 객체 리터럴 사용 예시
    > var dot = { x:1, y:2 };<br>
-   > var circle = {
-        center: {x:1,y:2};
-        radius: 2.5;
-     };  //circle.center.x는 결과값 1
+   > var circle = {<br>
+        center: {x:1,y:2};<br>
+        radius: 2.5;<br>
+     };  //circle.center.x는 결과값 1<br>
    > var person ={ name:"김용수", age:27, gender:"남"};
-   
-2. 
+ - 프로퍼티에 저장된 값의 타입이 함수면 메서드라고 부름 //c++ 클래스 내의 함수라고 보면 될듯?
+ - 객체는 참조 타입이라서 var a = card; 로 하면 a = {"suit":"하트", "rank":"A" };로 된다.
+2. 함수
+ - y = f(x)
+ - function 키워드를 사용해서 선언
+  > function sqare(x) { return x*x; } 
+ - 
