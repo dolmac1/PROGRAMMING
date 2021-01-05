@@ -53,4 +53,42 @@
    > return a;<br>
    > }<br>
    > console.log(a); // local
- - 
+ - let 과 const 는 블록범위({})안에서만 유효
+ - let은 블록 유효 범위를 갖는 지역변수(var문과 사용법 같음) ex. let x;
+ - const 는 선언할 때 초기화 해줘야함 const x = 2;
+ - const가 상수면 변경할 수 없지만 객체이거나 배열이면 프로퍼티를 변경 가능 (ex. const orig = {x:1, y:2}; orig.x = 2;)
+ - 함수 리터럴로 함수 선언 가능 ( ex. var square = function(x) {return x*x;}; )
+ - 함수 리터럴에서 무명함수도 되고 이름 선언해줄 수 있음. 단, 함수 리터럴은 위로 끌어올려주지 않음
+ - 객체의 메서드도 생성 가능하다
+   > var circle = {<br>
+   >  center: {x:1.0, y:2.0},<br>
+   >  readius: 2.5,<br>
+   >  area: function(){ //객체의 메서드<br>
+   >  return Math.PI * this.radius * this.radius;<br>
+   >  }<br>
+   > };
+ - 객체의 메서드는 circle.area(); 이런식으로 실행
+ - 메서드도 프로퍼티의 일종이므로 추후에 추가 가능
+   > circle.translate = function(a, b){<br>
+   >  this.center.x = this.center.x + a;<br>
+   >  this.center.y = this.center.y + b;<br>
+   > };
+ - 추후에 추가한 프로퍼티도 circle.translate(1,2); 이런식으로 실행 가능
+3. 생성자
+ - js에는 class가 없다. 생성자라고 하는 함수로 객체를 생성할 수 있다.
+   > function Card(suit, rank){<br>
+   >  this.suit = suit;<br>
+   >  this.rank = rank;<br>
+   > }
+ - var card = new Card("하트","A");로 사용
+ - new 연산자로 객체를 생성할 것으로 기대하고 만든 함수를 생성자라고 보면됨. 생성자는 파스칼 표기법(첫자만 대문자)으로 작명함.
+ - 생성자와 new 연산자로 생성한 것을 인스턴스라고 부름, 인스턴스는 여러개 생성 가능
+   > var card1 = new Card("하트","A");<br>
+   > var card2 = new Card("다이아몬드", "2");<br>
+   > var card3 = new Card("클로버","3");
+ - 생성자는 함수이므로 프로퍼티에 대입도 가능
+   > function exam(a,b){<br>
+   >  this.a = a;<br>
+   >  this.b = b;<br>
+   >  this.c = a+b;<br>
+   > }
