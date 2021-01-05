@@ -92,3 +92,21 @@
    >  this.b = b;<br>
    >  this.c = a+b;<br>
    > }
+4. 내장 객체
+ - 자바스크립트는 내장 생성자가 있음.
+ - Date 생성자는 날짜, 시간을 표현하는 내장 생성자. var now = new Date();로 사용 현재 시간을 넣어둠
+ - var then = new Date(2020, 1, 5); 이런식으로 선언 가능
+   > var start = new Date();<br>
+   > var end = new Date();<br>
+   > var time = end - start; //이렇게해서 걸린시간 밀리초 단위로 구할 수 있음
+ - Function 생성자는 함수를 생성하는 생성자 var make_func = new Function("인수1","인수2",...., "동작");으로 사용 //ex. var make_func = new Function("x","return x*x");
+5. 배열
+ - 배열 리터럴은 []사이에 값을 넣어 선언 //var array = [2,4,6,8];
+ - 배열 내에는 모든 타입의 값이 올 수 있음 //var array2 = [2,"a",true,{x:1, y:2},[1,2,3,4]];
+ - 배열의 길이는 length 를 사용 (다른 언어들과 같음) //console.log(array.length); -> 4
+ - Array 생성자로 배열을 생성 가능 //var a = new Array(1,2,3);
+ - 단, 생성자로 생성할 때 인수가 1개에 양의 정수면 그 숫자의 길이만큼의 배열 생성, 음수는 불가능함
+ - 배열에 삽입을 할 때, var array = [1,2,3]; 일 때 array[4] = 4;로 삽입하거나 array.push(4);로 삽입 가능
+ - 삭제는 delete array[4]; 이 때 배열의 length는 줄어들지 않음.
+ - 희소배열은 중간에 비어있는 배열 ex. a 배열이 [1,2,3,undifined,4]
+ 
