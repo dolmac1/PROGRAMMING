@@ -108,5 +108,7 @@
  - 단, 생성자로 생성할 때 인수가 1개에 양의 정수면 그 숫자의 길이만큼의 배열 생성, 음수는 불가능함
  - 배열에 삽입을 할 때, var array = [1,2,3]; 일 때 array[4] = 4;로 삽입하거나 array.push(4);로 삽입 가능
  - 삭제는 delete array[4]; 이 때 배열의 length는 줄어들지 않음.
- - 희소배열은 중간에 비어있는 배열 ex. a 배열이 [1,2,3,undifined,4]
+ - 희소배열은 중간에 비어있는 배열 ex. a 배열이 [1,2,3,undifined,5]
+ - property가 있는지 확인하는법 a.hasOwnProperty("4"); -> false, a.hasOwnProperty("3"); -> true
  
+## 5장
