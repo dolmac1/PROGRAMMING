@@ -1,0 +1,25 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+        while(head!=NULL){
+            if(head->val>=100001){
+                return true;
+            }
+            else{
+                head->val=head->val+200001; //-100000~100000이니까 이미 나왔으면 100000이상으로
+                head=head->next;
+            }
+        }
+        return false;
+
+    }
+};
+//https://leetcode.com/problems/linked-list-cycle
