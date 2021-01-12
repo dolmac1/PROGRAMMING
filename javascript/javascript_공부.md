@@ -220,3 +220,9 @@
  - 문자열을 숫자로 변환
    - 묵시적인 방법
      > var a = "2"; <br> a - 0 <br> +a
+   - parseInt, parseFloat 사용
+   - Number 함수 사용
+ - 논리값으로 변환
+   - !!x , Boolean(x) 방법으로 사용
+   
+## 6장
