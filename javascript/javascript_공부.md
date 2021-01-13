@@ -226,3 +226,22 @@
    - !!x , Boolean(x) 방법으로 사용
    
 ## 6장
+1. 대화 상자
+ - alert(경고창), prompt(입력창), confirm(확인, 취소창) 3개의 다화상자 존재
+ - alert("안녕하세요"); 이런식으로 사용, 확인 클릭 시 호출한 부분으로 코드 제어권 돌아감
+ - var name = prompt("이름을 입력해주세요"); 이런식으로 사용하며 내용 입력 누르고 확인 클릭 시 var로 값 들어감
+ - prompt는 두번째 인수로 초기값 설정 가능 ( var name = prompt("이름을 입력하세요","김용수");)
+ - parseInt, parseFloat 로 형변환도 가능 ( var age = parseInt(prompt("나이를 입력하세요"));)
+ - var yesOrNo = comfirm("링크를 표시하겠습니까?"); 확인버튼은 true, 취소 버튼은 false 값 넘겨줌
+2. console
+ - console 창에 출력할 때 사용하며 console 객체는 보통 디버깅할때 사용
+ - 콘솔에 텍스트를 출력하기 위해서는 (console.log(로그), console.info(정보), console.warn(경고), cosole.error(에러)) 메서드 사용
+ - 객체의 프로퍼티를 나열하기 위해서 console.dir 사용
+   > var a = {x:1, y:2};<br> console.dir(a);
+ - 콘솔에 타이머 출력 가능(console.time("answer_time") ~ console.timeEnd("answer_time")) 인수가 같은 것을 찾을 때까지
+   > console.time("answer_time"); <br> alert("눌렁"); <br> console.timeEnd("answer_time");
+3. 이벤트 처리기 등록하기와 타이머 알아보기
+ - 웹 브라우저는 이벤트 주도형 프로그램임(이벤트 발생 시, 응답을 주는 것)
+ - 이벤트 처리기란 이벤트가 발생했을 때 실행하는 함수
+ - HTML 요소의 속성에 이벤트 처리기 등록
+   - 예제)콘솔에 시각 표시하기
