@@ -247,4 +247,8 @@
    - 예제)콘솔에 시각 표시하기
    - 이벤트 처리기는 onclick, ondblclick, onmousedown 등등 있음
  - DOM에서 가져온 HTML 요소에 이벤트 처리기 지정하기
-   - 
+   - DOM 은 Document Object Model 의 약자로 html 요소를 조작할 수 있게 하는 인터페이스
+   - DOM 에는 주요 객체가 아래와 같이 있음
+     - window 는 웹브라우저 원도우 하나 또는 탭하나를 의미
+     - document는 html 문서 전체를 가리킴, html 요소 객체를 가져오거나 새로 만드는 등의 기능을 제공
+     - 요소 객체는 html 문서의 요소를 가리키는 
