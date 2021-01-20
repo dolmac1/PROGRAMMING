@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>시간구하기</title>
+        <script>
+            function displayTime(){
+                var d = new Date();
+                console.log(d);
+            }
+            window.onload = function(){
+                var button = document.getElementById("button");
+                button.onclick = displayTime();
+            }
+        </script>
+    </head>
+    <body>
+        <input type = "button" id = "button" value = "클릭">
+    </body>
+</html>
