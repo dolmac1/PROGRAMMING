@@ -257,3 +257,23 @@
      2. document.getElementById를 사용하여 특정 id를 가진 html 요소를 가져옴
      3. 요소 객체의 이벤트 처리기 프로퍼티에 이벤트 처리길로 동작할 함수 등록
    - DOM을 사용한 이벤트 처리 예시는 6-2.html
+   - 원래 javascript 부분은 html 불러오기 전에 먼저 읽어들이기 때문에 실행을 못하는데 window.onload를 사용하여 다 불러온 후에 실행하는 것
+   - 이벤트 처리기 프로퍼티에 등록한 이벤트는 null 값을 대입하여 없앨 수 있음 ex) button.onclick = null;
+ - 타이머
+  - window 객체에는 setTimeout 과 setInterval 메서드 존재
+  - setTimeout 함수를 쓰면 일정 시간 후에 호출되는 함수 생성 가능
+    >setTimeout(function(){<br>
+    >  console.log(Date());<br>
+    >},2000);
+    - 2000ms 후에 함수 실행
+    - 첫번째 인자는 실행할 메서드, 두번째 인자는 기다릴 시간(ms 단위)
+    - 단 clearTimeout() 사용 시 초기화되어 함수 실행 x
+      > var a = setTimeout(console.log("a"),2000); <br> clearTimeout(a);
+    - 지연시간을 0ms 로 설정하면 바로 수행할 것 같지만 이미 진행중인 메서드가 끝난 후에 실행됨
+  - setInterval은 지정된 시간마다 반복하는 것
+    >setInterval(function(){...}, 1000);
+    - 이런식으로 사용 시, 1000ms 마다(1초) 1번씩 수행
+    - setTimeout 과 마찬가지고 clearInterval을 통해서 중단 가능
+    - 내용물에 문자열을 넣으면 eval()로 평가후 실행
+4. html 요소를 동적으로 읽고 쓰기
+ - 
