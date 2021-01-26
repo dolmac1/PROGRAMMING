@@ -115,3 +115,43 @@
 - 웹 브라우저의 버전을 알려줌 (html 1,2,3,4,5, xhtml이 있으며 html5가 가장 최신버전
 - <!DOCTYPE html> 이라고 쓰면 html5로 돌아감
 ---------------------------------- 
+6강
+- head 태그 내에 들어가는 태그들
+- title태그 : <title></title> 웹 브라우저의 탭에 나타낼 이름을 지정
+- meta태그 : <meta> html문서의 기타 모든 정보를 나타냄, 빈태그임
+  - <meta charset = "utf-8"> : 텍스트 인코딩 방식을 지정, 무조건 넣어줘야한다.
+  - <meta name="author" content="김용수"> : 나타내고 싶은 정보를 name 내용물을 content에 넣음
+  - charset : 문자인코딩 방식, name : 제공하기 위한 정보의 종류, content : name이나 http-equi속성의 값을 제공
+- link태그 : <link> 외부 문서를 연결할 때 사용, css나 html, icon 문서들을 가지고올 때 사용, 빈태그
+  - <link rel="stylesheet" href = "./css/main.css"> : 스타일시트 속성의 main.css를 가져옴
+  - <link rel="icon" href="./a.png"> : 아이콘 a.png를 가져옴
+  - rel : (필수)현재 문서와 외부문서의 관계, href : 외부문서의 위치
+- style태그 : <style></style> css를 외부문서가 아닌 html문서에 직접 작성할 때 사용
+  - <style>
+  -  img{
+  -   width: 100px;
+  -   height:200px;
+  -  }
+  - </style>
+- script태그 : <script></script>js를 불러오거나 작성하는 태그
+  - <script src="./a.js"></srcript> : js를 외부에서 가져옴
+  - <script> function ......... </script> : js를 내부에서 작성
+---------------------------------
+7강
+- body 태그 내에 들어가는 태그들
+- div 태그 : <div></div> 문서의 분할을 할 때 사용하는 것으로 의미는 없음, 특정 부분씩 묶을 때 사용한다고 보면 됨
+  - <div>
+      <p></p>
+    </div>
+    <div>
+      <div>
+        <h1></h1>
+      </div>
+    </div>
+- img 태그 : <img> html에 이미지를 삽입할 때 사용하는 태그로 빈태그임
+  - <img src="./a.png" alt="a"> : 이미지 a.png를 삽입하겠다, 대체 텍스트는 a
+  - src : (필수) 이미지의 경로, alt : (필수) 이미지의 대체 텍스트
+- 웹표준 검사하기 : w3c validator에 접속하여 html 문서를 업로드하면 웹표준에 맞는지 기본적인 검사를 해줌(https://validator.w3.org/)
+---------------------------------
+8강
+- 예제 만드는  index_2_8.html 
