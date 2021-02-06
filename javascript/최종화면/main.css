@@ -9,10 +9,10 @@ body{
 .container {
     width: 980px;
     margin: auto;
-    padding: 20px 0;
 }
 .container-left{
-
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .logo{
     float: left;
