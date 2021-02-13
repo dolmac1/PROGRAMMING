@@ -1,0 +1,4 @@
+hr{
+    border: none; /* 선을 없앤다 */
+    border-top: 2px dashed red; /* 윗쪽 선만 2px짜리 빨간 점선*/
+}
