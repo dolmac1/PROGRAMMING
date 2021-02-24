@@ -716,7 +716,44 @@
 - name은 양식의 이름
 - type은 입력받을 데이터의 종류 ex)text, tel, button, checkbox 등등
 - form 태그는 연결할 form태그의 id 값을 넣어주며 그 form으로 데이터 전송
-
+- 8강 index_5.html
+-------------------------------------------
+10강 양식 - label
+- 라벨 기능 요소의 제목
+- input 요소의 레이블을 달아준다고 생각하면 됨
+- 8강 index_6.html
+-------------------------------------------
+11강. 양식 - button
+- 선택 가능한 버튼을 생성
+- input 을 사용하여 대체 가능
+- autofocus, disabled, form, name, type 속성을 사용 가능
+- 8강 index_7.html
+-------------------------------------------
+12강. 양식 - textarea
+- 여러줄의 일반 텍스트를 작성할 때 사용
+- text와 속성은 같으며 rows라는 속성이 있는데 이건 표시할 줄 수를 나타냄
+- 모서리를 클릭해서 크기 조절 가능
+- placeholder가 힌트를 나타내줌
+-------------------------------------------
+13강. 양식 - fieldset, legend
+- 같은 목적의 양식을 그룹화(fieldset) 제목(legend) 지정
+- disabled는 그룹 내 모든 양식 요소를 비활성화
+- form 그룹이 속할 하나 이상의 form의 Id
+- name은 그룹 이름
+-------------------------------------------
+14강. 양식 - select, datalist, optgroup, option
+- option, optgroup는 옵션을, 선택메뉴(select), 자동완성(datalist)를 통해서 사용
+- size를 통해서 선택할 수 있는 목록을 한번에 볼 갯수, multiple 을 쓰면 여러개 한번에 선택 가능
+- optgroup를 통해서 선택할 수 있는 목록들을 그룹지을 때 사용
+- disabled : 비활성화, label : 옵션의 제목, selected : 선택, value : 양식으로 제출될 값
+- datalist는 input에 list속성으로 넣어서 자동 완성으로 할 수 있는 목록을 지정
+- 8강 index_8.html
+-------------------------------------------
+15강 양식 - progress
+- progress는 작업의 완료 진행률을 표시할 때 사용
+- max는 작업의 총량
+- value는 현재량
+- 8강 index_9.html
 
 
 
