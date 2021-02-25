@@ -1,0 +1,6 @@
+ul li::before{
+    content: "호호호";
+    font-weight: bold;
+    color:red;
+    margin-right:20px;
+  }
