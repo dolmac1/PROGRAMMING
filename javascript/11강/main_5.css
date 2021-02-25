@@ -1,0 +1,8 @@
+[class^="btn-"]{
+    font-weight:bold;
+    border-radius: 20px;
+  }
+  
+  [class$="-suc"]{
+    color:green;
+  }
