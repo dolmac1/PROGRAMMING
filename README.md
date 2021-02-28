@@ -9,4 +9,4 @@
 [![solved.ac tier](http://mazassumnida.wtf/api/generate_badge?boj=dolmac)](https://solved.ac/dolmac)
 
 
-![javascript](https://github.com/dolmac1/PROGRAMMING/tree/master/javascript)
+[javascript](https://github.com/dolmac1/PROGRAMMING/tree/master/javascript)
