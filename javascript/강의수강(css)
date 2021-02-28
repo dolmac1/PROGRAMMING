@@ -181,12 +181,63 @@
 - 사용방법은 margin과 같음
 - padding을 추가하면 요소의 크기가 그만큼 커지는 현상이 있음
 - box-sizing: border-box; 옵션을 넣으면 padding을 넣어도 크기가 커지지 않고 크기가 고정된 상태에서 내부에 padding이 들어감
-
-
-
-
-
-
-
-
-
+-----------------------------------------------
+6강. border
+- 테두리 선을 지정할 때 사용
+- border는 속성이 border-width, border-style, border-color이 있으며 기본값은 각각 medium, none, black이다.
+- css에는 border: 두께 종류 색상; 이런식으로 사용
+- border: 1px solid red; 이렇게 쓰는데 solid는 실선임
+- width는 medium, thin, thick 또는 px,em,cm단위로 사용 가능
+- border도 padding이나 margin 처럼 상하좌우를 따로 지정할 수 있는데 사용법을 border-width: 옵션;으로 사용
+- 선의 종류는 none, hidden, solid(실선), dotted(점선), dashed(파선), double(두줄선), groove(홈이 파여있는 모양 선), ridge(솟은 모양 선(groove의 반대)), inset(요소가 들어간 선), outset(요소 전체가 나온 모양 선)
+- border-style도 border-width 처럼 상하좌우 다르거 지정 가능
+- border-color는 색상의 개념으로 쓰면 됨(transparent를 쓰면 백그라운드 색깔과 같은 색깔로 테두리색 지정)
+- border 속성같은 경우에는 상하 좌우 다르게 지정하기 위해서 border-top-width:1px; 이런식으로 지정할 수 있음
+- 요소의 크기는 요소의 width + border의 두께로 된다 이걸 해결하기 위해서는 직접 width와 height에 선의 두께를 빼거나, box-sizing: border-box; 속성을 넣으면 된다.
+- 13강 index_1.html, main_1.css
+-----------------------------------------------
+7강. box-sizing
+- padding과 border는 박스의 크기에 영향을 주는 것을 봤음
+- box-sizing 옵션을 통해 변경 가능
+- 기본값은 content-box는 너비와 높이만으로 크기를 지정해서 border나 padding을 넣으면 크기가 바뀜
+- border-box옵션은 border와 padding을 합쳐서 너비와 높이 계산, border와 padding을 넣어도 박스의 크기가 변하지 않음
+- padding-box옵션도 있긴하나 호환성이 안좋아서 잘 안쓴다.
+-----------------------------------------------
+8강. display
+- display는 요소의 박스 타입 유형을 설정해주는 것
+- block는 블록요소로 지정, inline은 인라인 요소로 지정, inlink-block는 인라인-블록요소로 지정(input요소), 기타(table, table-cell, flex), none으로 넣을 수 있음
+- 각 태그마다 기본값은 있지만 바꿔서 사용할 수 있음
+- inline-block은 기본적으로는 inline이지만 inline이 기본적으로 가질 수 없는 width, height, padding 같은 것을 가질 수 있음
+- 13강 index_2.html, main_2.html, main_2.js 
+-----------------------------------------------
+9강. overflow
+- 요소의 크기 이상으로 내용이 넘쳤을 때, 내용의 보여짐을 제어함
+- 값은 visible(넘친부분 보여줌), hidden(넘친부분 숨김), scroll(스크롤 생성), auto가 있음
+-----------------------------------------------
+10강.opacity
+- 요소의 투명도를 지정할 때 사용
+- 값은 숫자 0부터 1사이의 소수점 숫자로 지정
+- 0은 화면에 존재하지만 안보이는거도 display:none;은 아예 없어진 것 이라는 차이가 있다고 보면 됨
+-----------------------------------------------
+<14. css/속성 - 글꼴, 문자>
+1강. font, font-style
+- font-style은 글자 기울기 지정, font-weight는 글자 두께, font-size는 글자크기(기본은 16px), line-height는 줄 높이(reset.css적용 시 1), font-family는 글꼴 변경
+- font: 기울기 두께 크기 / 줄높이 글꼴; 으로 단축해서 사용 가능
+- 중간에 /가 들어가는 이유는 크기랑 줄높이는 순서를 명확하게 하지 않으면 뭐가 뭔지 알 수 없기 때문에 /앞은 글자 크기 뒤는 줄높이로 구분해줌
+- 단축속성을 사용하기 위해서는 font-size와 font-family는 필수로 입력해줘야함
+- font-style은 글자의 기울기만 을 설정해주는 태그(normal, italic(이텔릭체), oblique(기울어진 글자체) 이 3가지 속성 존재)
+-----------------------------------------------
+2강. font-weight
+- 글자의 두께(가중치) 설정
+- 값으로는 normal(기본두께, 400), bold(두껍게, 700), bolder(부모 요소보다 더 두껍게), lighter(부모 요소보다 더 얇게), 숫자가 있으며 숫자는 100단위로 100~900까지 9단계 가능
+상속값 bolder lighter
+100   400     100
+200   400     100
+300   400     100
+400   700     100
+500   700     100
+600   900     400
+700   900     400
+800   900     700
+900   900     700
+-----------------------------------------------
