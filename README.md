@@ -10,3 +10,7 @@
 
 
 [javascript](https://github.com/dolmac1/PROGRAMMING/tree/master/javascript)
+
+[c++](https://github.com/dolmac1/PROGRAMMING/tree/master/c%2B%2B)
+
+[c](https://github.com/dolmac1/PROGRAMMING/tree/master/c)
