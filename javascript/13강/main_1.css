@@ -1,0 +1,42 @@
+.box1 {
+    width: 200px;
+    height: 150px;
+    border: 5px solid red;
+  }
+  .box2 {
+    width: 200px;
+    height: 150px;
+    border: 5px dotted orange;
+    box-sizing: border-box;
+  }
+  .box3 {
+    width: 200px;
+    height: 150px;
+    border: 5px dashed transparent;
+  }
+  .box4 {
+    width: 200px;
+    height: 150px;
+    border: 5px double gray;
+  }
+  .box5 {
+    width: 200px;
+    height: 150px;
+    border: 5px groove green;
+  }
+  .box6 {
+    width: 200px;
+    height: 150px;
+    border: 5px ridge yellow;
+  }
+  .box7 {
+    width: 200px;
+    height: 150px;
+    border: 5px inset lightblue;
+  }
+  .box8 {
+    width: 200px;
+    height: 150px;
+    border: 5px outset wheat;
+  }
+  
