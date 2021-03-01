@@ -1,0 +1,16 @@
+article {
+  
+}
+article .picture{
+  width: 200px;
+  height:150px;
+  background:tomato;
+  float:left;
+  margin-right:10px;
+  margin-bottom:10px;
+}
+
+article .text {
+  clear:left;
+}
+/* clear는 float를 해제 */
