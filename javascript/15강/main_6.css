@@ -1,0 +1,29 @@
+.box-group{
+  display:flex;
+}
+.box{
+  width:100px;
+  height:100px;
+  background:tomato;
+  border:4px dashed red;
+  border-radius: 10px;
+  font-size: 30px;
+  display:flex;
+  margin-right: -30px;
+}
+.box1{
+  
+}
+.box2{
+  position:relative;
+  z-index:1; /*z-index가 클수록 위에 쌓임*/
+}
+.box3{
+  position:relative;
+}
+.box4{
+  position : relative; /* position이 있는경우 더 나중에 작성한 것이 위에 쌓임*/
+}
+.box5{
+  
+}
