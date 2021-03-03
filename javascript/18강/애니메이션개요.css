@@ -1,0 +1,16 @@
+.box {
+  width:100px;
+  height: 100px;
+  background: tomato;
+}
+.box:hover{
+  animation: first-animation 2s infinite alternate;
+}
+@keyframes first-animation{
+  0%{
+    width: 100px;
+  }
+  100%{
+    width: 500px;
+  }
+}
