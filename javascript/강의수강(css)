@@ -395,9 +395,96 @@
 - cover을 넣으면 배경이미지의 크기 비율을 유지하며 더 넓은 너비에 맞게 적용
 - contain은 cover과 반대로 짧은 너비에 맞춰줌 빈공간이 생길 수 있음
 -----------------------------------------------
+<17. css/속성 - 전환 & 변환>
+
+1강. 전환(transitions)
+- transition은 css속성의 시작과 끝을 지정하여 증간값을 애니메이션화 할 때 사용
+- transition-property는 전환 효과를 사용할 속성 이름을 넣는 것으로 기본값은 all
+  - 기본값은 all이라 모든 속성이 적용 되며, 속성 이름을 지정해주면 그 속성만 애니메이션이 지정됨
+- transition-duration은 전환 효과의 지속시간을 설정, 기본적으로 0s를 기본값으로 갖음
+  - ms로 지정할수도 있음
+- transition-timing-function은 타이밍 함수를 지정할 때 사용 기본값은 ease, 빠르게 진행되다가 천천히 끝날것인가, 천천히 진행되다가 빠르게 끝날것인가 등등을 지정하는 것
+  - ease : 빠르게->느리게, linear:일정하게, ease-in:느리게->빠르게.... 등등 다양한 속성을 넣을수는 있음
+  - 구글에 easing function이라고 치면 어떤 형태가 있는지 그래프로 보여줌
+  - cubic-bezier(n,n,n,n)으로 설정할수도 있으나 기본으로 제공하는것 쓰는게 나음
+  - steps(n)을 넣으면 변하는 단계를 지정
+- transition-delay는 전환 효과의 대기시간을 설정할 때 사용
+  - 몇초 후에 전환 효과가 시작할 것인가를 지정해줌
+  - 초를 두개를 적으면 앞에있는것이 duration, 뒤에있는 것이 delay로 해석됨
+- transition-timing-function와 transition-delay는 많이 사용하진 않음
+- 17강 index_1.html, main_1.css
+-----------------------------------------------
+2강. 변환(transforms) 개요
+- 속성은 transform 하나밖에 없으며 값에 변환 함수를 넣어서 사용
+  - transform: 변환함수1 변환함수2 ....;
+  - transform: 원근법 이동 크기 회전 기울임;
+  - ex) transform: rotate(20deg) translate(10px, 0);
+- 변형효과는 2d도 있고 3d 속성도 있음
+-----------------------------------------------
+3강. 변환 2d 속성
+- translate(이동), scale(크기), rotate(회전), skew(비틀기) matrix(2차원 변환 효과)의 효과가 있음
+- matrix는 모든 함수를 아우르는 함수임
+- translate
+  - translate(x,y) : x축으로 몇 y축으로 몇 이동할지 지정
+  - translateX(x) : x축으로 몇 이동
+  - translateY(y) : y축으로 몇 이동
+  - scale(x,y) : 크기를 x축으로 얼만큼 y축으로 얼만큼 늘릴 것인가
+  - scaleX(x) : x축으로 몇만큼 크기 늘림
+  - scaleY(y) : y축으로 몇만큼 크기 늘림
+  - rotate(degree) : 몇도 회전할 것인가
+  - skew(x-deg, y-deg): x축 y축으로 얼만큼씩 비틀것인가
+  - skewX(x-deg) : x축으로 얼만큼 비틀것인가
+  - skewY(y-deg) : y축으로 얼만큼 비틀것인가
+  - matrix(n,n,n,n,n,n) : 모든 2차변환 효과 지정 가능
+- 17강 변환2d속성.html, 변환2d속성.css
+-----------------------------------------------
+4강. 변환 3d 속성
+- translate3d, scale3d, rotate3d, perspective(n)(원근법), matrix3d가 있다
+- rotateX, rotateY는 특이하게도 3d 함수이다
+- perspective는 가장 앞에 선언되어있어야함
+- 17강 변환3d속성.html, 변환3d속성.css
+-----------------------------------------------
+5강. 변환 속성 - transform-origin
+- transform-origin은 요소 변환의 기준점을 설정할 때 사용 기본적으로 정 가운데를 위치로 변환이 일어나는데 기준 변경
+- transform-style은 3d 변환 요소의 자식 요소도 3d 변환을 사용할지 설정
+- perspective 는 하위 요소를 관찰하는 원근 거리 설정
+- perspective-origin은 원근 거리 기준점을 설정
+- backface-visibility 3d 변환으로 회전된 요소의 뒷면 숨김을 설정할 때 사용
+- transform-origin: x축% y축%;형태로 사용하면 됨
+- 17강 transform-origin.html, transform-origin.css
+-----------------------------------------------
+6강. 변환 속성 - transform-style
+- transform-style은 자식요소의 3d 변환을 사용할지 설정
+- 기본값은 flat으로 자식요소에서는 3차원 효과를 사용하지 않겠다
+- preserve-3d로 쓰면 자식요소에서도 3차원 변환 사용 가능
+-----------------------------------------------
+7강. 변환 속성 - perspective
+- 하위 요소를 관찰하는 원근 거리를 설정
+- 단위는 px, em, cm등의 단위로 지정가능
+- perspective속성이면 관찰대상의 부모 요소에 지정 tranform:perspective()속성은 관찰대상에게 적용
+-----------------------------------------------
+8강. 변환 속성 - perspective-origin
+- 시선의 기준점을 지정할 때 사용
+- transform-origin 처럼 사용하면 됨
+-----------------------------------------------
+9강. 변환 속성 - backface-visibility
+- 3d 변환으로 회전된 요소의 뒷면 숨김을 설정할 때 사용
+- 기본값은 visible로 뒷면이 보이고 숨기고 싶으면 hidden을 사용
+-----------------------------------------------
+10강. 변환 속성 - matrix()
+- 요소의 2차원 변환 효과를 지정할 때 사용하며 scale(), skew(), translate(), rotate()를 지정
+- matrix 함수는 사용하기 어렵기때문에 일반적으로 위의 4가지 함수를 사용
+- 브라우저는 위의 4개의 함수를 자동으로 matrix로 변환하여 해석함
+-----------------------------------------------
+<18. css/속성 - 애니메이션 & 다단>
 
 
 
 
 
-  
+
+
+
+
+
+
