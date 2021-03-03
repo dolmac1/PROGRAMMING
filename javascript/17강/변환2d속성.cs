@@ -1,0 +1,40 @@
+.box{
+  width:100px;
+  height:100px;
+  background:tomato;
+  margin:100px;
+  transition:1s;
+}
+.box:hover{
+  transform:rotate(40deg);
+}
+.box2{
+  width:100px;
+  height:100px;
+  background:tomato;
+  margin:100px;
+  transition:1s;
+}
+.box2:hover{
+  transform:translate(100px,100px);
+}
+.box3{
+  width:100px;
+  height:100px;
+  background:tomato;
+  margin:100px;
+  transition:1s;
+}
+.box3:hover{
+  transform:scale(2,2);
+}
+.box4{
+  width:100px;
+  height:100px;
+  background:tomato;
+  margin:100px;
+  transition:1s;
+}
+.box4:hover{
+  transform:skew(40deg,30deg);
+}
