@@ -478,6 +478,53 @@
 -----------------------------------------------
 <18. css/속성 - 애니메이션 & 다단>
 
+1강. 애니메이션 개요
+- animation속성은 요소에 애니메이션을 설정/제어할 때 사용
+- 단축속성이기 때문에 다양한 속성을 적용할 수 있음
+- animation: 애니메이션이름 지속시간 [타이밍함수 대기시간 반복횟수 반복방향 전후상태 재생/정지]; 형태로 사용
+- @keyframes로 애니메이션을 선언해줌
+- 18강 애니메이션개요.html, 애니메이션개요.css
+-----------------------------------------------
+2강. keyframes rule
+- @keyframes는 2개 이상의 애니메이션 중간 상태(프레임)을 지정할 때 사용
+- @keyframes 애니메이션 이름{
+    0%{속성: 값;}
+    50%{속성: 값;}
+    100%{속성: 값;}
+  } 형태로 설정
+- 18강 keyframes-rule.html, keyframes-rule.css
+-----------------------------------------------
+3강. 애니메이션 속성 - animation-name, animation-duration
+- animation-name은 재생할 애니메이션의 이름 지정
+- animation-duration은 애니메이션을 몇초동안 동작하게 할것인가
+-----------------------------------------------
+4강. 애니메이션 속성 - animation-timing-function, animation-delay
+- animation-timing-function은 애니메이션을 어떤 속도 형태로 동작하게 할것인가(transition과 같음)
+- animation-delay는 얼마의 시간 후에 동작하게 할 것인가
+- 18강 atf_ad.html, atf_ad.css
+-----------------------------------------------
+5강. 애니메이션 속성 - animation-iteration-count, animation-direction
+- animation-iteration-count는 반복할 횟수를 지정하는 것으로 infinite를 적으면 무한대로 반복
+- animation-direction는 애니메이션 반복 방향을 설정 기본값은 normal이며 reverse는 역방향, alternate는 왕복, alternate-reverse는 역방향 반복
+- 18강 aic_adi.html, aic_adi.css
+-----------------------------------------------
+6강. 애니메이션 속성 - animation-fill-mode
+- animation-fill-mode는 애니메이션의 전후 상태를 설정
+- 기본값은 none으로 기존 위치에서 시작해서 애니메이션이 시작 하는 위치로 이동 ->동작->기존위치로 가서 끝
+- forwards는 기존위치에서 시작 -> 애네메이션 시작 위치로 이동 -> 동작 -> 애니메이션 끝 위치에서 끝
+- backwards는 애니메이션 시작위치에서 시작-> 동작 -> 기존 위치에서 끝
+- both는 애니메이션 시작위치에서 시작-> 동작-> 애니메이션 끝위치에서 끝
+-----------------------------------------------
+7강. 애니메이션 속성 - animation-play-state
+- 애니메이션의 재생과 정지를 설정
+- 기본값은 running이고, paused를 넣을수도 있음
+-----------------------------------------------
+8강. 다단(Multi Columns)
+- 일반 블록 레이아웃을 확장하여 여러 텍스트 다단으로 쉽게 정리하여 가독성 확보하는 기능
+- columns 속성을 이용해서 다단을 설정
+- column-count로 다단의 갯수, column-width로 다단의 너비
+- 단의 너비 스타일 색깔을 지정할때 column-rule 속성을 사용하며 column-rule-width, column-rule-style, column-rule-color
+- 단과 단사이의 너비는 column-gap
 
 
 
