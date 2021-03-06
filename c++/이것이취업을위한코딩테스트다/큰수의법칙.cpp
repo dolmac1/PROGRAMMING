@@ -21,15 +21,19 @@ int main(void)
 			max_num = number;
 		}
 	}
-	for (int i = 0;i < b;i++) {
-		if (i != 0 && i%c == 0) {
-			result = result + max_num2;
-		}
-		else {
+	int sum = 0;
+	for (int i = 0;i < c;i++) {
+		sum += max_num;
+	}
+	sum += max_num2;
+	for (int i = 0;i < b/c;i++) {
+		result = result + sum;
+	}
+	if (b%(c+1) != 0) {
+		for (int i = 0;i < b%(c+1);i++) {
 			result = result + max_num;
 		}
 	}
-
 	cout << result << endl;
 
 	
