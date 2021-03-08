@@ -25,6 +25,9 @@ int main() {
 			arr1[i] = arr2[i];
 			change++;
 		}
+		else{
+			break;
+		}
 
 		if (change == m) {
 			i = n;
