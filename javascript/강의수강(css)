@@ -525,13 +525,91 @@
 - column-count로 다단의 갯수, column-width로 다단의 너비
 - 단의 너비 스타일 색깔을 지정할때 column-rule 속성을 사용하며 column-rule-width, column-rule-style, column-rule-color
 - 단과 단사이의 너비는 column-gap
-
-
-
-
-
-
-
-
+-----------------------------------------------
+<19. css/속성 - 플랙스>
+1강. flex 개요
+- 수평이나 수직 정렬과 관련된 속성
+- inline-block로 display 타입을 정하면 각 값마다 사이에 띄어쓰기가 하나로 구분되게됨
+- float:left를 사용시에는 요소를 부유시키기 때문에 부모 컨테이너가 둘러싸지못함
+- 위의 방법을 통해 수평화하는 것은 대체재였음
+- 부모요소에 display:flex를 사용시에 간단하게 수평화할 수 있음
+- container는 item을 감싸는 부모요소이고 item을 정렬하기위해서는 container가 필수임
+- container에서 item에 적용할 수 있는 item들이 정해져있음
+- https://heropy.blog/2018/11/24/css-flexible-box/에 자세한 설명들 있음
+-----------------------------------------------
+2강. flex containers 속성 - display
+- display는 flex container를 정의
+- display속성으로 flex container를 선언하는 방법은 
+  - display:flex; 블록요소처럼 컨테이너가 배치됨
+  - display:inline-flex; 컨테이너가 인라인요소 처럼 배치됨
+- 19강 container_flex.html, container_flex.css
+-----------------------------------------------
+3강. flex containers 속성 - flex-flow, flex-direction
+- flex-flow는 flex-direction(items의 주 축을 설정)과 flex-wrap(items의 여러 줄 묶음 설정)의 단축속성
+- flex-direction은 주축을 설정하는 것으로 기본값은 row고 row는 items가 수평정렬, row-reverse는 수평 반대 정렬, column은 수직정렬, column-reverse는 수직 반대 정렬
+-----------------------------------------------
+4강. flex 주축과 교차축, 시작점과 끝점
+- 주축의 수직이 교차축이됨
+- 주축이 바뀌면 교차축도 바뀜
+- 시작점(flex-start)는 주축의 시작점, 끝점(flex-end)는 주축이 끝나는 지점
+- 그것의 수직으로 교차축의 시작점과 끝점도 있음(단, reverse를 써도 교차축의 시작과 끝점은 바뀌지 않음)
+-----------------------------------------------
+5강. flex containers 속성 - flex-wrap
+- flex-wrap은 items의 여러 줄 묶음을 설정할 때 사용
+- nowrap은 모든 items들을 한줄에만 표시 기본값임(컨테이너 크기가 줄어들어 공간이 부족하면 item들의 크기도 줄어듬)
+- wrap은 items를 여러줄로 묶음(컨테이너 크기가 줄어들어서 item이 들어갈 공간이 부족하면 다음줄에 표시)
+- wrap-reverse는 여러줄로 역방향
+- 19강 flex-wrap.html, flex-wrap.css
+-----------------------------------------------
+6강. flex containers 속성 - justify-content
+- 주축의 정렬 방법을 설정
+- 값으로는 flex-start(주축의 시작면부터), flex-end(주축의 끝면부터),center(가운데정렬), space-between(시작면부터 균등정렬(시작점과 끝점에 붙어있음)), space-around(균등정렬)가 있음
+- 19강 justify-content.html, justify-content.css
+-----------------------------------------------
+7강. flex containers 속성 - align-content
+- 교차축의 정렬 방법을 설정
+- flex-wrap속성이 wrap이고 교차축에 여백이 있어야하며, 여러줄의 item이 있을때만 동작함
+- 값은 justify-content와 같지만 stretch라는 값 하나만 추가되어있고 이게 기본값(container의 교차축을 채우기 위해 items를 늘림 - container의 세로 길이가 길면 안의 items들의 세로 길이가 늘어나느 것)
+-----------------------------------------------
+8강.  flex containers 속성 - align-items
+- 교차축의 items의 정렬방법을 설정하는 것인데 items가 한줄일 때 많이 사용하는 것
+- 값은 stretch, flex-start, start-end, center, baseline이 있는데 나머지는 align-content와 같고, baseline의 경우에는 문자열을 기준으로 정렬
+- 19강 align-items.html, align-items.css
+-----------------------------------------------
+9강. flex items 속성 - order
+- flex의 items들에 부여되는 속성들
+- order는 item의 순서를 설정
+- order의 순서를 지정하여 순서대로 나열
+- 19강 order.html, order.css
+-----------------------------------------------
+10강. flex items 속성 - flex-grow
+- items의 증가 너비를 지정할 때 사용
+- 각각의 items의 flex-grow를 더해서 나눈 값만큼의 비율을 차지하도록 설정됨
+- 기본 너비가 설정되어있는 경우에는 완벽하게 비율만큼 너비가 조정되진 않음
+- 19강 flex-grow.html, flex-grow.css
+-----------------------------------------------
+11강. flex items 속성 - flex-shrink
+- item이 감소하는 너비의 비율을 설정
+- 숫자가 크면 더 많은 너비가 감소
+- 기본값은 1
+- flex-grow의 반대라고 생각하면 됨
+- flex-basis같은 요소에 영향을 받음
+- 값이 0일경우 효과 없음
+-----------------------------------------------
+12강. flex items 속성 - flex-basis
+- item의 공간 배분전에 기본 너비를 설정
+- auto로 값이 지정되어있을 경우에는 width, height등의 속성으로 item의 너비 설정 가능
+- 기본값은 auto
+-----------------------------------------------
+13강. flex items 속성 - flex
+- flex는 위의 속성들을 아우르는 단축속성
+- flex: 증가너비 감소너비 기본너비;로 나타내며 기본값은 flex: 0 1 0;임
+-----------------------------------------------
+14강. flex items 속성 - align-self
+- 교차축에서 개별 item의 정렬 방법을 설정할 때 사용
+- align-items는 container에 모든 item의 정렬방법을 설정하는 것인데 다르게 한두개 정도 지정하고 싶을때 align-self 사용
+- 들어가는 값은 align-items와 같음
+-----------------------------------------------
+<19. css/속성 - 플랙스>
 
 
