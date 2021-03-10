@@ -1,0 +1,34 @@
+.container{
+  border:4px solid;
+  display:flex;
+}
+.container .item{
+  width:100px;
+  height:100px;
+  background:tomato;
+  border: 4px dashed red;
+  border-radius: 10px;
+  font-size:30px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.item1{
+  order:3;
+}
+.item2{
+  order:1;
+}
+.item3{
+  order:5;
+}
+.item4{
+  order:2;
+}
+.item5{
+  order:6;
+}
+.item6{
+  order:1;
+}
