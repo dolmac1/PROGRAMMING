@@ -3,6 +3,10 @@
 #include <vector>
 using namespace std;
 
+bool compare(int i, int j) {
+	return i > j;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie();
@@ -14,7 +18,7 @@ int main() {
 		cin >> k;
 		arr.push_back(k);
 	}
-	sort(arr.begin(), arr.end());
+	sort(arr.begin(), arr.end(), compare);
 	for (int i = 0;i < n;i++) {
 		cout << arr[i] << " ";
 	}
